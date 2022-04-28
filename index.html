@@ -14,16 +14,37 @@
 
 <body>
     <div style="text-align: center;">
-        <span class="d-block p-2 bg-success text-white">スコアシート</span>
+        <span class="d-block p-2 bg-success text-white">
+            mjscore
+        </span>
     </div>
-    <div class="input-group mb-3">
-        <select class="form-select" id="inputGroupSelect01">
-        <option selected>選択してください</option>
-        <option value="4">4人打ち</option>
-        <option value="3">3人打ち</option>
-      </select>
-        <button class="btn btn-primary" type="button" id="button-addon2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">設定</button>
-        <button class="btn btn-outline-secondary" type="button" id="button-addon1">追加</button>
+    <!-- Modal -->
+    <div class="modal fade" id="manual" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="manualLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="manualLabel">ご利用方法</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btn-group" style="width:100%;">
+        <button class="btn btn-warning" type="button" id="button-addon2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">設定</button>
+        <button class="btn btn-primary" type="button" id="button-addon1">確定</button>
+        <button class="btn btn-danger" type="button" id="button-addon1">修正</button>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#manual">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-question" viewBox="0 0 16 16">
+        <path d="M8.05 9.6c.336 0 .504-.24.554-.627.04-.534.198-.815.847-1.26.673-.475 1.049-1.09 1.049-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745z"></path>
+        <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"></path>
+        <path d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0z"></path>
+        </svg>
+        </button>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -34,23 +55,56 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="input-group">
-                        <span class="input-group-text">player1</span>
-                        <input type="number" aria-label="First name" class="form-control">
+                    <select class="form-select" id="inputGroupSelect01">
+                        <option selected>選択してください</option>
+                        <option value="4">4人打ち</option>
+                        <option value="3">3人打ち</option>
+                    </select>
+                    <div id="input4p">
+                        <div class="input-group">
+                            <span class="input-group-text">player1</span>
+                            <input type="number" aria-label="First name" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">player2</span>
+                            <input type="number" aria-label="First name" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">player3</span>
+                            <input type="number" aria-label="First name" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">player4</span>
+                            <input type="number" aria-label="First name" class="form-control">
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <span class="input-group-text">player2</span>
-                        <input type="number" aria-label="First name" class="form-control">
+                    <div id="header4p" class="input-group">
+                        <span class="input-group-text" style="background-color: #052c65;color: #fff;">名前</span>
+                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="滝沢">
+                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="内川">
+                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="たろう">
+                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="勝又">
                     </div>
-                    <div class="input-group">
-                        <span class="input-group-text">player3</span>
-                        <input type="number" aria-label="First name" class="form-control">
+                    <div id="input3p">
+                        <div class="input-group">
+                            <span class="input-group-text">player1</span>
+                            <input type="number" aria-label="First name" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">player2</span>
+                            <input type="number" aria-label="First name" class="form-control">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-text">player3</span>
+                            <input type="number" aria-label="First name" class="form-control">
+                        </div>
                     </div>
-                    <div class="input-group">
-                        <span class="input-group-text">player4</span>
-                        <input type="number" aria-label="First name" class="form-control">
+                    <div id="header3p" class="input-group">
+                        <span class="input-group-text" style="background-color: #052c65;color: #fff;">名前</span>
+                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="滝沢">
+                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="内川">
+                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="たろう">
                     </div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
@@ -60,18 +114,18 @@
         </div>
     </div>
     <div class="input-group">
-        <span class="input-group-text">累計</span>
-        <input type="text" aria-label="First name" class="form-control" readonly>
-        <input type="text" aria-label="Last name" class="form-control" readonly>
-        <input type="text" aria-label="Last name" class="form-control" readonly>
-        <input type="text" aria-label="Last name" class="form-control" readonly>
+        <span class="input-group-text" style="background-color: #198754;color: #fff;">累計</span>
+        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd">
+        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd">
+        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd">
+        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd">
     </div>
     <div class="input-group">
-        <span class="input-group-text">名前</span>
-        <input type="text" aria-label="First name" class="form-control" readonly value="滝沢">
-        <input type="text" aria-label="Last name" class="form-control" readonly value="内川">
-        <input type="text" aria-label="Last name" class="form-control" readonly value="たろう">
-        <input type="text" aria-label="Last name" class="form-control" readonly value="勝又">
+        <span class="input-group-text" style="background-color: #052c65;color: #fff;">名前</span>
+        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="滝沢">
+        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="内川">
+        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="たろう">
+        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="勝又">
     </div>
     <div class="input-group">
         <span class="input-group-text">今回</span>
