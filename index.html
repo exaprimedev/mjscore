@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <!-- Required meta tags -->
@@ -14,16 +14,16 @@
 
 <body>
     <div style="text-align: center;">
-        <span class="d-block p-2 bg-success text-white">
-            mjscore
-        </span>
+        <span class="d-block p-2" style="font-size: 24px;color: #0d6efd;">
+                <b>mjscore</b>
+            </span>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="manual" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="manualLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="manualLabel">ご利用方法</h5>
+                    <h5 class="modal-title" id="manualLabel">ヘルプ</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -35,137 +35,240 @@
         </div>
     </div>
     <div class="btn-group" style="width:100%;">
-        <button class="btn btn-warning" type="button" id="button-addon2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">設定</button>
-        <button class="btn btn-primary" type="button" id="button-addon1">確定</button>
-        <button class="btn btn-danger" type="button" id="button-addon1">修正</button>
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#manual">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-question" viewBox="0 0 16 16">
-        <path d="M8.05 9.6c.336 0 .504-.24.554-.627.04-.534.198-.815.847-1.26.673-.475 1.049-1.09 1.049-1.986 0-1.325-.92-2.227-2.262-2.227-1.02 0-1.792.492-2.1 1.29A1.71 1.71 0 0 0 6 5.48c0 .393.203.64.545.64.272 0 .455-.147.564-.51.158-.592.525-.915 1.074-.915.61 0 1.03.446 1.03 1.084 0 .563-.208.885-.822 1.325-.619.433-.926.914-.926 1.64v.111c0 .428.208.745.585.745z"></path>
-        <path d="m10.273 2.513-.921-.944.715-.698.622.637.89-.011a2.89 2.89 0 0 1 2.924 2.924l-.01.89.636.622a2.89 2.89 0 0 1 0 4.134l-.637.622.011.89a2.89 2.89 0 0 1-2.924 2.924l-.89-.01-.622.636a2.89 2.89 0 0 1-4.134 0l-.622-.637-.89.011a2.89 2.89 0 0 1-2.924-2.924l.01-.89-.636-.622a2.89 2.89 0 0 1 0-4.134l.637-.622-.011-.89a2.89 2.89 0 0 1 2.924-2.924l.89.01.622-.636a2.89 2.89 0 0 1 4.134 0l-.715.698a1.89 1.89 0 0 0-2.704 0l-.92.944-1.32-.016a1.89 1.89 0 0 0-1.911 1.912l.016 1.318-.944.921a1.89 1.89 0 0 0 0 2.704l.944.92-.016 1.32a1.89 1.89 0 0 0 1.912 1.911l1.318-.016.921.944a1.89 1.89 0 0 0 2.704 0l.92-.944 1.32.016a1.89 1.89 0 0 0 1.911-1.912l-.016-1.318.944-.921a1.89 1.89 0 0 0 0-2.704l-.944-.92.016-1.32a1.89 1.89 0 0 0-1.912-1.911l-1.318.016z"></path>
-        <path d="M7.001 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0z"></path>
-        </svg>
-        </button>
+        <button class="btn btn-primary" type="button" id="button-addon2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><b>設定</b></button>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#manual"><b>ヘルプ</b></button>
+        <button class="btn btn-primary" type="button" id="button-addon1" onclick="setresult();" disabled><b>確定</b></button>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">設定入力</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">設定</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <select class="form-select" id="inputGroupSelect01">
-                        <option selected>選択してください</option>
-                        <option value="4">4人打ち</option>
-                        <option value="3">3人打ち</option>
+                    <select class="form-select" id="inputGroupSelect01" onchange="getform(this);">
+                            <option selected>選択してください</option>
+                            <option value="4">4人打ち</option>
+                            <option value="3">3人打ち</option>
                     </select>
-                    <div id="input4p">
+                    <div id="errormode" class="alert alert-danger  alert-dismissible fade show" role="alert" style="display:none;margin-bottom: 0rem;">
+                        <strong>選択してください</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    <div id="div4p" style="display:none;">
                         <div class="input-group">
                             <span class="input-group-text">player1</span>
-                            <input type="number" aria-label="First name" class="form-control">
+                            <input type="text" aria-label="First name" class="form-control form4p" oninput="setpname(this,1,4)">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text">player2</span>
-                            <input type="number" aria-label="First name" class="form-control">
+                            <input type="text" aria-label="First name" class="form-control form4p" oninput="setpname(this,2,4)">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text">player3</span>
-                            <input type="number" aria-label="First name" class="form-control">
+                            <input type="text" aria-label="First name" class="form-control form4p" oninput="setpname(this,3,4)">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text">player4</span>
-                            <input type="number" aria-label="First name" class="form-control">
+                            <input type="text" aria-label="First name" class="form-control form4p" oninput="setpname(this,4,4)">
+                        </div>
+                        <div id="error4p" class="alert alert-danger  alert-dismissible fade show" role="alert" style="margin-bottom: 0rem;display:none;">
+                            <strong>全員の名前を入力して下さい</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div id="div4pdisp" style="display:none;">
+                            <div class="input-group" id="rowtotal4p">
+                                <span class="input-group-text" style="background-color: #d1e7dd;color: #0f5132;"><b>合計</b></span>
+                                <input type="number" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd;text-align:right;" id="modaltotalp1_4">
+                                <input type="number" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd;text-align:right;" id="modaltotalp2_4">
+                                <input type="number" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd;text-align:right;" id="modaltotalp3_4">
+                                <input type="number" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd;text-align:right;" id="modaltotalp4_4">
+                            </div>
+                            <div id="header4p" class="input-group">
+                                <span class="input-group-text" style="background-color: #cfe2ff;color: #084298;"><b>名前</b></span>
+                                <input type="text" aria-label="First name" class="form-control" id="p1name_4" readonly="" style="background-color:#cfe2ff;color: #084298;text-align:center;font-weight:bold;">
+                                <input type="text" aria-label="First name" class="form-control" id="p2name_4" readonly="" style="background-color:#cfe2ff;color: #084298;text-align:center;font-weight:bold;">
+                                <input type="text" aria-label="First name" class="form-control" id="p3name_4" readonly="" style="background-color:#cfe2ff;color: #084298;text-align:center;font-weight:bold;">
+                                <input type="text" aria-label="First name" class="form-control" id="p4name_4" readonly="" style="background-color:#cfe2ff;color: #084298;text-align:center;font-weight:bold;">
+                            </div>
+                            <div class="input-group" id="modalrowcr4p">
+                                <span id="numcr" class="input-group-text"><b>今回</b></span>
+                                <input type="number" aria-label="First name" class="form-control modalscorecr4p colp1" style="text-align:right;" id="modalcolp1">
+                                <input type="number" aria-label="Last name" class="form-control modalscorecr4p colp2" style="text-align:right;" id="modalcolp2">
+                                <input type="number" aria-label="Last name" class="form-control modalscorecr4p colp3" style="text-align:right;" id="modalcolp3">
+                                <input type="number" aria-label="Last name" class="form-control modalscorecr4p colp4" style="text-align:right;" id="modalcolp4">
+                            </div>
                         </div>
                     </div>
-                    <div id="header4p" class="input-group">
-                        <span class="input-group-text" style="background-color: #052c65;color: #fff;">名前</span>
-                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="滝沢">
-                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="内川">
-                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="たろう">
-                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="勝又">
-                    </div>
-                    <div id="input3p">
+                    <div id="div3p" style="display:none;">
                         <div class="input-group">
                             <span class="input-group-text">player1</span>
-                            <input type="number" aria-label="First name" class="form-control">
+                            <input type="text" aria-label="First name" class="form-control form3p" oninput="setpname(this,1,3)">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text">player2</span>
-                            <input type="number" aria-label="First name" class="form-control">
+                            <input type="text" aria-label="First name" class="form-control form3p" oninput="setpname(this,2,3)">
                         </div>
                         <div class="input-group">
                             <span class="input-group-text">player3</span>
-                            <input type="number" aria-label="First name" class="form-control">
+                            <input type="text" aria-label="First name" class="form-control form3p" oninput="setpname(this,3,3)">
                         </div>
-                    </div>
-                    <div id="header3p" class="input-group">
-                        <span class="input-group-text" style="background-color: #052c65;color: #fff;">名前</span>
-                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="滝沢">
-                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="内川">
-                        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="たろう">
+                        <div id="error3p" class="alert alert-danger  alert-dismissible fade show" role="alert" style="margin-bottom: 0rem;display:none;">
+                            <strong>全員の名前を入力してください</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <div id="div3pdisp" style="display:none;">
+                            <div class="input-group" id="rowtotal3p">
+                                <span class="input-group-text" style="background-color: #d1e7dd;color: #0f5132;"><b>合計</b></span>
+                                <input type="number" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd;text-align:right;" id="modaltotalp1_3">
+                                <input type="number" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd;text-align:right;" id="modaltotalp2_3">
+                                <input type="number" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd;text-align:right;" id="modaltotalp3_3">
+                            </div>
+                            <div id="header3p" class="input-group">
+                                <span class="input-group-text" style="background-color: #cfe2ff;color: #084298;"><b>名前</b></span>
+                                <input type="text" aria-label="First name" class="form-control" id="p1name_3" readonly="" style="background-color:#cfe2ff;color: #084298;text-align:center;font-weight:bold;">
+                                <input type="text" aria-label="First name" class="form-control" id="p2name_3" readonly="" style="background-color:#cfe2ff;color: #084298;text-align:center;font-weight:bold;">
+                                <input type="text" aria-label="First name" class="form-control" id="p3name_3" readonly="" style="background-color:#cfe2ff;color: #084298;text-align:center;font-weight:bold;">
+                            </div>
+                            <div class="input-group" id="modalrowcr3p">
+                                <span id="numcr" class="input-group-text"><b>今回</b></span>
+                                <input type="number" aria-label="First name" class="form-control modalscorecr3p colp1" style="text-align:right;" id="modalcolp1">
+                                <input type="number" aria-label="Last name" class="form-control modalscorecr3p colp2" style="text-align:right;" id="modalcolp2">
+                                <input type="number" aria-label="Last name" class="form-control modalscorecr3p colp3" style="text-align:right;" id="modalcolp3">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">キャンセル</button>
-                    <button type="button" class="btn btn-primary">OK</button>
+                    <button type="button" class="btn btn-primary" onclick="start();">OK</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="input-group">
-        <span class="input-group-text" style="background-color: #198754;color: #fff;">累計</span>
-        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd">
-        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd">
-        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd">
-        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#d1e7dd">
+    <input type="hidden" id="mode" value="">
+    <div id="div1st">
     </div>
-    <div class="input-group">
-        <span class="input-group-text" style="background-color: #052c65;color: #fff;">名前</span>
-        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="滝沢">
-        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="内川">
-        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="たろう">
-        <input type="text" aria-label="First name" class="form-control" readonly="" style="background-color:#052c65;color: #fff;" value="勝又">
+    <div id="errorcr" class="alert alert-danger  alert-dismissible fade show" style="margin-bottom: 0rem; display:none;" role="alert">
+        <strong>全員またはトップ以外のスコアを入力してください</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <div class="input-group">
-        <span class="input-group-text">今回</span>
-        <input type="number" aria-label="First name" class="form-control">
-        <input type="number" aria-label="Last name" class="form-control">
-        <input type="number" aria-label="Last name" class="form-control">
-        <input type="number" aria-label="Last name" class="form-control">
-    </div>
-    <div class="input-group">
-        <span class="input-group-text">０１</span>
-        <input type="text" aria-label="First name" class="form-control" readonly>
-        <input type="text" aria-label="Last name" class="form-control" readonly>
-        <input type="text" aria-label="Last name" class="form-control" readonly>
-        <input type="text" aria-label="Last name" class="form-control" readonly>
-    </div>
-    <div class="input-group">
-        <span class="input-group-text">０２</span>
-        <input type="text" aria-label="First name" class="form-control" readonly>
-        <input type="text" aria-label="Last name" class="form-control" readonly>
-        <input type="text" aria-label="Last name" class="form-control" readonly>
-        <input type="text" aria-label="Last name" class="form-control" readonly>
-    </div>
-    <div class="input-group">
-        <span class="input-group-text">０３</span>
-        <input type="text" aria-label="First name" class="form-control" readonly>
-        <input type="text" aria-label="Last name" class="form-control" readonly>
-        <input type="text" aria-label="Last name" class="form-control" readonly>
-        <input type="text" aria-label="Last name" class="form-control" readonly>
+    <div id="div2nd" style="display: flex; flex-direction: column; height: 100%;">
     </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        -->
+    <script>
+        function setpname(obj, target, mode) {
+            document.getElementById("p" + target + "name_" + mode).defaultValue = obj.value;
+        }
+
+        function getform(obj) {
+            if (obj.value === "4") {
+                document.getElementById("div4p").style.display = "";
+                document.getElementById("div3p").style.display = "none";
+            } else if (obj.value === "3") {
+                document.getElementById("div3p").style.display = "";
+                document.getElementById("div4p").style.display = "none";
+            } else {
+                document.getElementById("div3p").style.display = "none";
+                document.getElementById("div4p").style.display = "none";
+            }
+        }
+
+        function start() {
+            if (document.getElementById("inputGroupSelect01").value === "選択してください") {
+                document.getElementById("errormode").style.display = "";
+            } else {
+                document.getElementById("errormode").style.display = "none";
+                const elems = document.getElementsByClassName("form-control form" + document.getElementById("inputGroupSelect01").value + "p");
+                let isEmpty = false;
+                for (let i = 0; i < elems.length; i++) {
+                    if (elems[i].value === "") {
+                        isEmpty = true;
+                    }
+                }
+                if (isEmpty) {
+                    document.getElementById("error" + document.getElementById("inputGroupSelect01").value + "p").style.display = "";
+                    isEmpty = false;
+                } else {
+                    let div1stHtml = "";
+                    if (document.getElementById("inputGroupSelect01").value === "4") {
+                        div1stHtml = document.getElementById("div4pdisp").innerHTML;
+                        document.getElementById("mode").defaultValue = "4";
+                    } else if (document.getElementById("inputGroupSelect01").value === "3") {
+                        div1stHtml = document.getElementById("div3pdisp").innerHTML;
+                        document.getElementById("mode").defaultValue = "3";
+                    }
+                    document.getElementById("div1st").innerHTML = div1stHtml.replace(/modal/g, "");
+                    $("#button-addon1").prop("disabled", false);
+                    $("#button-addon2").prop("disabled", true);
+                    $('#staticBackdrop').modal('hide')
+                }
+            }
+        }
+
+        function setresult() {
+            const elems = document.getElementsByClassName("form-control scorecr" + document.getElementById("mode").value + "p");
+            let resultrow = document.getElementsByClassName("input-group resultrow");
+            let resulthtml = document.getElementById("div2nd").innerHTML;
+            let htotal = 0;
+            let topidx = 0;
+            let emptycount = 0;
+            for (let i = 0; i < elems.length; i++) {
+                if (elems[i].value === "") {
+                    emptycount++;
+                }
+            }
+            if (emptycount > 1) {
+                document.getElementById("errorcr").style.display = "";
+                emptycount = 0;
+            } else {
+                for (let i = 0; i < elems.length; i++) {
+                    if (elems[i].value !== "") {
+                        document.getElementById("colp" + (i + 1)).defaultValue = elems[i].value
+                        htotal = htotal + parseFloat(elems[i].value);
+                    } else {
+                        topidx = i;
+                    }
+                }
+                if (emptycount !== 0) {
+                    document.getElementById("colp" + (topidx + 1)).defaultValue = Math.round((0 - htotal) * 10) / 10;
+                }
+                document.getElementById("div2nd").innerHTML = resulthtml + document.getElementById("rowcr" + document.getElementById("mode").value + "p").outerHTML.replace(/scorecr/g, "scoreresult").replace(/class="input-group"/g, 'class="input-group resultrow"').replace(/input /g, "input readonly ").replace(/colp/g, "colresult_p").replace(/numcr/g, "numresult" + resultrow.length).replace(/今回/g, replaceHalfToFull(('00' + (resultrow.length + 1)).slice(-2)));
+                for (let i = 0; i < elems.length; i++) {
+                    document.getElementById("colp" + (i + 1)).value = ""
+                }
+                document.getElementById("errorcr").style.display = "none";
+                for (let i = 0; i < document.getElementById("mode").value; i++) {
+                    const resultelems = document.getElementsByClassName("form-control scoreresult" + document.getElementById("mode").value + "p colresult_p" + (i + 1));
+                    let ptatal = 0;
+                    for (let y = 0; y < resultelems.length; y++) {
+                        ptatal = ptatal + parseFloat(resultelems[y].value);
+                    }
+                    console.log((i + 1) + ":" + ptatal)
+                    document.getElementById("totalp" + (i + 1) + "_" + document.getElementById("mode").value).defaultValue = Math.round(ptatal * 10) / 10;
+                }
+            }
+        }
+
+        function replaceHalfToFull(str) {
+            return str.replace(/[!-~]/g, function(s) {
+                return String.fromCharCode(s.charCodeAt(0) + 0xFEE0);
+            });
+        }
+    </script>
 </body>
 
 </html>
