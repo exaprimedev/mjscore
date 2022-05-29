@@ -364,6 +364,7 @@
         </div>
     </footer>
     <!-- Optional JavaScript; choose one of the two! -->
+
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -374,113 +375,109 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
         -->
     <script>
-        const _0x302c7d = _0x31ba;
-        (function(_0x143810, _0x40c06f) {
-            const _0x16b1d9 = _0x31ba,
-                _0x48f688 = _0x143810();
-            while (!![]) {
-                try {
-                    const _0x1b49dc = -parseInt(_0x16b1d9(0x203)) / 0x1 + parseInt(_0x16b1d9(0x226)) / 0x2 + parseInt(_0x16b1d9(0x21b)) / 0x3 * (-parseInt(_0x16b1d9(0x208)) / 0x4) + parseInt(_0x16b1d9(0x1fd)) / 0x5 + parseInt(_0x16b1d9(0x209)) / 0x6 + -parseInt(_0x16b1d9(0x1f0)) / 0x7 * (-parseInt(_0x16b1d9(0x214)) / 0x8) + parseInt(_0x16b1d9(0x1f7)) / 0x9;
-                    if (_0x1b49dc === _0x40c06f) break;
-                    else _0x48f688['push'](_0x48f688['shift']());
-                } catch (_0x2d81d0) {
-                    _0x48f688['push'](_0x48f688['shift']());
-                }
-            }
-        }(_0x384b, 0x326d5));
-        var isOnIOS = navigator[_0x302c7d(0x222)][_0x302c7d(0x1ec)](/iPad/i) || navigator[_0x302c7d(0x222)][_0x302c7d(0x1ec)](/iPhone/i),
-            eventName = isOnIOS ? _0x302c7d(0x21c) : _0x302c7d(0x218);
-        window[_0x302c7d(0x1ef)](eventName, _0x161375 => {
-            const _0x1d71aa = _0x302c7d;
-            _0x161375[_0x1d71aa(0x217)](), _0x161375[_0x1d71aa(0x200)] = '';
+        var isOnIOS = navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPhone/i);
+        var eventName = isOnIOS ? "pagehide" : "beforeunload";
+        window.addEventListener(eventName, (event) => {
+            event.preventDefault();
+            event.returnValue = '';
         });
 
-        function _0x384b() {
-            const _0x458aa9 = ['class=\x22input-group\x20resultrow\x22', 'colp', 'div4pdisp', 'div2nd', '765944HtkfGA', '1023000iEKGwG', 'errorcr', 'getElementById', 'disabled', 'getElementsByClassName', 'mode', 'replace', '#button-addon1', 'div3pdisp', 'defaultValue', 'div4p', '8pIPlcj', 'form-control\x20scorecr', 'p\x20colresult_p', 'preventDefault', 'beforeunload', 'totalp', 'prop', '3kXCcty', 'pagehide', 'style', 'input\x20readonly\x20', 'display', 'fromCharCode', 'rowcr', 'userAgent', 'innerHTML', 'colresult_p', 'name_', '127914XKzBHk', 'value', 'match', 'none', 'errormode', 'addEventListener', '1298857jUdmsX', 'length', 'round', 'hide', 'div3p', 'div1st', 'inputGroupSelect01', '2212740kFCbGd', 'form-control\x20form', '選択してください', '#button-addon2', 'numresult', 'charCodeAt', '660785oGFbId', 'scoreresult', 'log', 'returnValue', 'form-control\x20scoreresult', '#staticBackdrop', '399990OFBqes'];
-            _0x384b = function() {
-                return _0x458aa9;
-            };
-            return _0x384b();
+        function setpname(obj, target, mode) {
+            document.getElementById("p" + target + "name_" + mode).defaultValue = obj.value;
         }
 
-        function _0x31ba(_0x3e4b91, _0x3861a2) {
-            const _0x384bd6 = _0x384b();
-            return _0x31ba = function(_0x31bac2, _0x2614b3) {
-                _0x31bac2 = _0x31bac2 - 0x1eb;
-                let _0x1a4fd0 = _0x384bd6[_0x31bac2];
-                return _0x1a4fd0;
-            }, _0x31ba(_0x3e4b91, _0x3861a2);
-        }
-
-        function setpname(_0x19a9fe, _0x5aed90, _0x3c83fd) {
-            const _0x4722eb = _0x302c7d;
-            document['getElementById']('p' + _0x5aed90 + _0x4722eb(0x225) + _0x3c83fd)[_0x4722eb(0x212)] = _0x19a9fe[_0x4722eb(0x1eb)];
-        }
-
-        function getform(_0x2d1d4e) {
-            const _0x3bf827 = _0x302c7d;
-            if (_0x2d1d4e[_0x3bf827(0x1eb)] === '4') document['getElementById'](_0x3bf827(0x213))['style'][_0x3bf827(0x21f)] = '', document[_0x3bf827(0x20b)]('div3p')['style'][_0x3bf827(0x21f)] = 'none';
-            else _0x2d1d4e[_0x3bf827(0x1eb)] === '3' ? (document[_0x3bf827(0x20b)](_0x3bf827(0x1f4))[_0x3bf827(0x21d)][_0x3bf827(0x21f)] = '', document[_0x3bf827(0x20b)]('div4p')[_0x3bf827(0x21d)]['display'] = _0x3bf827(0x1ed)) : (document[_0x3bf827(0x20b)](_0x3bf827(0x1f4))[_0x3bf827(0x21d)][_0x3bf827(0x21f)] = _0x3bf827(0x1ed), document[_0x3bf827(0x20b)]('div4p')[_0x3bf827(0x21d)]['display'] = _0x3bf827(0x1ed));
+        function getform(obj) {
+            if (obj.value === "4") {
+                document.getElementById("div4p").style.display = "";
+                document.getElementById("div3p").style.display = "none";
+            } else if (obj.value === "3") {
+                document.getElementById("div3p").style.display = "";
+                document.getElementById("div4p").style.display = "none";
+            } else {
+                document.getElementById("div3p").style.display = "none";
+                document.getElementById("div4p").style.display = "none";
+            }
         }
 
         function start() {
-            const _0x12dd21 = _0x302c7d;
-            if (document['getElementById'](_0x12dd21(0x1f6))[_0x12dd21(0x1eb)] === _0x12dd21(0x1f9)) document['getElementById'](_0x12dd21(0x1ee))['style'][_0x12dd21(0x21f)] = '';
-            else {
-                document[_0x12dd21(0x20b)](_0x12dd21(0x1ee))[_0x12dd21(0x21d)]['display'] = 'none';
-                const _0xf013bc = document[_0x12dd21(0x20d)](_0x12dd21(0x1f8) + document[_0x12dd21(0x20b)](_0x12dd21(0x1f6))[_0x12dd21(0x1eb)] + 'p');
-                let _0x585d3d = ![];
-                for (let _0x10e5ac = 0x0; _0x10e5ac < _0xf013bc[_0x12dd21(0x1f1)]; _0x10e5ac++) {
-                    _0xf013bc[_0x10e5ac][_0x12dd21(0x1eb)] === '' && (_0x585d3d = !![]);
+            if (document.getElementById("inputGroupSelect01").value === "選択してください") {
+                document.getElementById("errormode").style.display = "";
+            } else {
+                document.getElementById("errormode").style.display = "none";
+                const elems = document.getElementsByClassName("form-control form" + document.getElementById("inputGroupSelect01").value + "p");
+                let isEmpty = false;
+                for (let i = 0; i < elems.length; i++) {
+                    if (elems[i].value === "") {
+                        isEmpty = true;
+                    }
                 }
-                if (_0x585d3d) document['getElementById']('error' + document[_0x12dd21(0x20b)](_0x12dd21(0x1f6))[_0x12dd21(0x1eb)] + 'p')[_0x12dd21(0x21d)]['display'] = '', _0x585d3d = ![];
-                else {
-                    let _0x40479d = '';
-                    if (document[_0x12dd21(0x20b)](_0x12dd21(0x1f6))[_0x12dd21(0x1eb)] === '4') _0x40479d = document[_0x12dd21(0x20b)](_0x12dd21(0x206))[_0x12dd21(0x223)], document[_0x12dd21(0x20b)](_0x12dd21(0x20e))[_0x12dd21(0x212)] = '4';
-                    else document[_0x12dd21(0x20b)](_0x12dd21(0x1f6))[_0x12dd21(0x1eb)] === '3' && (_0x40479d = document[_0x12dd21(0x20b)](_0x12dd21(0x211))[_0x12dd21(0x223)], document[_0x12dd21(0x20b)](_0x12dd21(0x20e))[_0x12dd21(0x212)] = '3');
-                    document[_0x12dd21(0x20b)](_0x12dd21(0x1f5))['innerHTML'] = _0x40479d[_0x12dd21(0x20f)](/modal/g, ''), $(_0x12dd21(0x210))['prop'](_0x12dd21(0x20c), ![]), $(_0x12dd21(0x1fa))[_0x12dd21(0x21a)](_0x12dd21(0x20c), !![]), $(_0x12dd21(0x202))['modal'](_0x12dd21(0x1f3));
+                if (isEmpty) {
+                    document.getElementById("error" + document.getElementById("inputGroupSelect01").value + "p").style.display = "";
+                    isEmpty = false;
+                } else {
+                    let div1stHtml = "";
+                    if (document.getElementById("inputGroupSelect01").value === "4") {
+                        div1stHtml = document.getElementById("div4pdisp").innerHTML;
+                        document.getElementById("mode").defaultValue = "4";
+                    } else if (document.getElementById("inputGroupSelect01").value === "3") {
+                        div1stHtml = document.getElementById("div3pdisp").innerHTML;
+                        document.getElementById("mode").defaultValue = "3";
+                    }
+                    document.getElementById("div1st").innerHTML = div1stHtml.replace(/modal/g, "");
+                    $("#button-addon1").prop("disabled", false);
+                    $("#button-addon2").prop("disabled", true);
+                    $('#staticBackdrop').modal('hide')
                 }
             }
         }
 
         function setresult() {
-            const _0x15a883 = _0x302c7d,
-                _0x5d4b8c = document[_0x15a883(0x20d)](_0x15a883(0x215) + document[_0x15a883(0x20b)](_0x15a883(0x20e))[_0x15a883(0x1eb)] + 'p');
-            let _0x46d3a6 = document[_0x15a883(0x20d)]('input-group\x20resultrow'),
-                _0x25b0ed = document[_0x15a883(0x20b)](_0x15a883(0x207))[_0x15a883(0x223)],
-                _0xd7ae22 = 0x0,
-                _0x49ffe1 = 0x0,
-                _0x1047a9 = 0x0;
-            for (let _0x16c99e = 0x0; _0x16c99e < _0x5d4b8c[_0x15a883(0x1f1)]; _0x16c99e++) {
-                _0x5d4b8c[_0x16c99e][_0x15a883(0x1eb)] === '' && _0x1047a9++;
+            const elems = document.getElementsByClassName("form-control scorecr" + document.getElementById("mode").value + "p");
+            let resultrow = document.getElementsByClassName("input-group resultrow");
+            let resulthtml = document.getElementById("div2nd").innerHTML;
+            let htotal = 0;
+            let topidx = 0;
+            let emptycount = 0;
+            for (let i = 0; i < elems.length; i++) {
+                if (elems[i].value === "") {
+                    emptycount++;
+                }
             }
-            if (_0x1047a9 > 0x1) document['getElementById'](_0x15a883(0x20a))['style']['display'] = '', _0x1047a9 = 0x0;
-            else {
-                for (let _0x36e9eb = 0x0; _0x36e9eb < _0x5d4b8c['length']; _0x36e9eb++) {
-                    _0x5d4b8c[_0x36e9eb][_0x15a883(0x1eb)] !== '' ? (document[_0x15a883(0x20b)]('colp' + (_0x36e9eb + 0x1))[_0x15a883(0x212)] = _0x5d4b8c[_0x36e9eb][_0x15a883(0x1eb)], _0xd7ae22 = _0xd7ae22 + parseFloat(_0x5d4b8c[_0x36e9eb][_0x15a883(0x1eb)])) : _0x49ffe1 = _0x36e9eb;
-                }
-                _0x1047a9 !== 0x0 && (document[_0x15a883(0x20b)](_0x15a883(0x205) + (_0x49ffe1 + 0x1))[_0x15a883(0x212)] = Math[_0x15a883(0x1f2)]((0x0 - _0xd7ae22) * 0xa) / 0xa);
-                document[_0x15a883(0x20b)](_0x15a883(0x207))[_0x15a883(0x223)] = _0x25b0ed + document['getElementById'](_0x15a883(0x221) + document[_0x15a883(0x20b)]('mode')[_0x15a883(0x1eb)] + 'p')['outerHTML'][_0x15a883(0x20f)](/scorecr/g, _0x15a883(0x1fe))[_0x15a883(0x20f)](/class="input-group"/g, _0x15a883(0x204))[_0x15a883(0x20f)](/input /g, _0x15a883(0x21e))[_0x15a883(0x20f)](/colp/g, _0x15a883(0x224))['replace'](/numcr/g, _0x15a883(0x1fb) + _0x46d3a6[_0x15a883(0x1f1)])[_0x15a883(0x20f)](/今回/g, replaceHalfToFull(('00' + (_0x46d3a6[_0x15a883(0x1f1)] + 0x1))['slice'](-0x2)));
-                for (let _0x45789a = 0x0; _0x45789a < _0x5d4b8c[_0x15a883(0x1f1)]; _0x45789a++) {
-                    document[_0x15a883(0x20b)]('colp' + (_0x45789a + 0x1))[_0x15a883(0x1eb)] = '';
-                }
-                document['getElementById'](_0x15a883(0x20a))[_0x15a883(0x21d)][_0x15a883(0x21f)] = _0x15a883(0x1ed);
-                for (let _0x12929c = 0x0; _0x12929c < document[_0x15a883(0x20b)]('mode')[_0x15a883(0x1eb)]; _0x12929c++) {
-                    const _0x393971 = document[_0x15a883(0x20d)](_0x15a883(0x201) + document[_0x15a883(0x20b)](_0x15a883(0x20e))[_0x15a883(0x1eb)] + _0x15a883(0x216) + (_0x12929c + 0x1));
-                    let _0x1e8a65 = 0x0;
-                    for (let _0x173cd6 = 0x0; _0x173cd6 < _0x393971[_0x15a883(0x1f1)]; _0x173cd6++) {
-                        _0x1e8a65 = _0x1e8a65 + parseFloat(_0x393971[_0x173cd6]['value']);
+            if (emptycount > 1) {
+                document.getElementById("errorcr").style.display = "";
+                emptycount = 0;
+            } else {
+                for (let i = 0; i < elems.length; i++) {
+                    if (elems[i].value !== "") {
+                        document.getElementById("colp" + (i + 1)).defaultValue = elems[i].value
+                        htotal = htotal + parseFloat(elems[i].value);
+                    } else {
+                        topidx = i;
                     }
-                    console[_0x15a883(0x1ff)](_0x12929c + 0x1 + ':' + _0x1e8a65), document[_0x15a883(0x20b)](_0x15a883(0x219) + (_0x12929c + 0x1) + '_' + document[_0x15a883(0x20b)](_0x15a883(0x20e))[_0x15a883(0x1eb)])[_0x15a883(0x212)] = Math[_0x15a883(0x1f2)](_0x1e8a65 * 0xa) / 0xa;
+                }
+                if (emptycount !== 0) {
+                    document.getElementById("colp" + (topidx + 1)).defaultValue = Math.round((0 - htotal) * 10) / 10;
+                }
+                document.getElementById("div2nd").innerHTML = resulthtml + document.getElementById("rowcr" + document.getElementById("mode").value + "p").outerHTML.replace(/scorecr/g, "scoreresult").replace(/class="input-group"/g, 'class="input-group resultrow"').replace(/input /g, "input readonly ").replace(/colp/g, "colresult_p").replace(/numcr/g, "numresult" + resultrow.length).replace(/今回/g, replaceHalfToFull(('00' + (resultrow.length + 1)).slice(-2)));
+                for (let i = 0; i < elems.length; i++) {
+                    document.getElementById("colp" + (i + 1)).value = ""
+                }
+                document.getElementById("errorcr").style.display = "none";
+                for (let i = 0; i < document.getElementById("mode").value; i++) {
+                    const resultelems = document.getElementsByClassName("form-control scoreresult" + document.getElementById("mode").value + "p colresult_p" + (i + 1));
+                    let ptatal = 0;
+                    for (let y = 0; y < resultelems.length; y++) {
+                        ptatal = ptatal + parseFloat(resultelems[y].value);
+                    }
+                    console.log((i + 1) + ":" + ptatal)
+                    document.getElementById("totalp" + (i + 1) + "_" + document.getElementById("mode").value).defaultValue = Math.round(ptatal * 10) / 10;
                 }
             }
         }
 
-        function replaceHalfToFull(_0x4f28db) {
-            const _0x2fbebb = _0x302c7d;
-            return _0x4f28db[_0x2fbebb(0x20f)](/[!-~]/g, function(_0x57e0ec) {
-                const _0x17e599 = _0x2fbebb;
-                return String[_0x17e599(0x220)](_0x57e0ec[_0x17e599(0x1fc)](0x0) + 0xfee0);
+        function replaceHalfToFull(str) {
+            return str.replace(/[!-~]/g, function(s) {
+                return String.fromCharCode(s.charCodeAt(0) + 0xFEE0);
             });
         }
     </script>
